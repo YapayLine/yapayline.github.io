@@ -1,0 +1,72 @@
+/* Animasyonlar */
+.about-image,
+.about-text h2,
+.about-text p,
+.about-text h3,
+.about-text li {
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.about-image {
+  transform: translateX(-30px);
+}
+
+.about-image.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-text h2 {
+  transform: translateY(20px);
+}
+
+.about-text h2.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-text p {
+  transform: translateY(15px);
+}
+
+.about-text p.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-text h3 {
+  transform: translateY(10px);
+}
+
+.about-text h3.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-text li {
+  transform: translateX(20px);
+}
+
+.about-text li.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Orijinal Tasarım Korundu */
+.about-text h2,
+.about-text h3,
+.about-text p,
+.about-text li {
+  /* Orijinal font ve renkler korundu */
+}
+
+.about-image {
+  /* Orijinal resim stilleri */
+  box-shadow: none; /* Önceki gölge kaldırıldı */
+}
+
+.list-style li::before {
+  /* Orijinal liste işaretleri korundu */
+  content: ""; 
+}

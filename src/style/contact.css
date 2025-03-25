@@ -1,0 +1,168 @@
+.notification-container {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.notification {
+  padding: 20px 25px;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+  animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.notification.success {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+}
+
+.notification.error {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 1.8rem;
+  line-height: 1;
+  padding: 0 8px;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.close-btn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.15);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 40px;
+}
+.social ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+.social i {
+  color: #fff; 
+  font-size: 2.2rem;
+  transition: all 0.3s ease;
+}
+
+.social a.linkedin-btn:hover {
+  border-color: #00b3ff;
+  background: rgba(0, 119, 181, 0.15);
+  box-shadow: 0 12px 25px rgba(0, 119, 181, 0.25);
+}
+
+.social a.linkedin-btn:hover i {
+  color: #25a9f1;
+}
+
+.social a.github-btn:hover {
+  border-color: #333;
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.social a.github-btn:hover i {
+  color: #333;
+}
+
+.social a.instagram-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.social a.instagram-btn:hover {
+  border-color: #e1306c;
+  background: linear-gradient(
+    45deg,
+    rgba(225, 48, 108, 0.15),
+    rgba(131, 58, 180, 0.15)
+  );
+  box-shadow: 0 12px 25px rgba(225, 48, 108, 0.25);
+}
+
+.social a.instagram-btn:hover i {
+  background: linear-gradient(45deg, #833ab4, #e1306c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ortak hover efekti */
+.social a:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+  .social a {
+    width: 55px;
+    height: 55px;
+  }
+
+  .social i {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,39 @@
+.service-item {
+    opacity: 0;
+    transition: all 0.6s ease-out;
+    transform: translateY(20px);
+  }
+  
+  /* Sol taraftan gelecekler için */
+  .service-item.left {
+    transform: translateX(-50px);
+  }
+  
+  /* Sağ taraftan gelecekler için */
+  .service-item.right {
+    transform: translateX(50px);
+  }
+  
+  .service-item.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  
+  /* İkonlar için ekstra animasyon */
+  .service-item.visible i {
+    animation: iconBounce 0.6s ease-out;
+  }
+  
+  @keyframes iconBounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  .service-desc {
+    transition: transform 0.3s ease-out;
+  }
+  
+  .service-item:hover .service-desc {
+    transform: translateY(-5px);
+  }

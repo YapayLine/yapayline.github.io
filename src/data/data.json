@@ -1,0 +1,144 @@
+{
+  "Header": {
+    "title": "İŞİNİZİ GELECEĞE TAŞIYORUZ",
+    "paragraph": "Yapayline olarak, yapay zeka ve dijital çözümlerle işletmenizi geleceğe taşıyor, rekabet avantajı sağlıyoruz. İnovasyon ve teknolojiyle başarıya ulaşmanıza yardımcı oluyoruz."
+  },
+  "About": {
+    "paragraph": "Yapayline, 2024 yılında yapay zeka odaklı çözümler sunmak amacıyla kurulmuş bir teknoloji şirketidir. İleri düzey yapay zeka teknolojilerini kullanarak, iş dünyasının karşılaştığı çeşitli zorluklara yenilikçi ve verimli çözümler geliştirmekteyiz. Müşterilerimizin ihtiyaçlarına göre özelleştirilmiş yapay zeka tabanlı çözümler sunarak, süreçlerin dijitalleşmesini ve verimliliğin artırılmasını sağlıyoruz.",
+    "Why": [
+      "Yapay zeka odaklı çözümler.",
+      "İnovasyonla öne çıkıyoruz.",
+      "Müşteri odaklı yaklaşım.",
+      "Verimlilik artırıcı çözümler"
+    ],
+    "Why2": [
+      "Uzman ekibimizle çalışıyoruz.",
+      "Yüksek kaliteli hizmetler.",
+      "Her sektöre özel çözümlerler.",
+      "Sürekli gelişen yenilikçi çözümler."
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "Teknofest 2024",
+      "largeImage": "img/portfolio/g1.jpg",
+      "smallImage": "img/portfolio/g1.jpg"
+    },
+    {
+      "title": "Teknofest 2024",
+      "largeImage": "img/portfolio/g2.jpg",
+      "smallImage": "img/portfolio/g2.jpg"
+    },
+    {
+      "title": "Teknofest 2024",
+      "largeImage": "img/portfolio/g4.jpg",
+      "smallImage": "img/portfolio/g4.jpg"
+    },
+    {
+      "title": "ÖĞRENCİM",
+      "largeImage": "img/portfolio/g6.png",
+      "smallImage": "img/portfolio/g6.png"
+    },
+    {
+      "title": "SYNAPSENSE",
+      "largeImage": "img/portfolio/g5.jpg",
+      "smallImage": "img/portfolio/g5.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-cogs",
+      "name": "Yapay Zeka Çözümleri",
+      "text": "Yapay zeka teknolojileri ile iş süreçlerinizi daha akıllı hale getiriyor, verimlilik sağlıyoruz."
+    },
+    {
+      "icon": "fa fa-mobile",
+      "name": "Mobil Uygulama Geliştirme",
+      "text": "Mobil platformlar için kullanıcı dostu, performans odaklı uygulamalar geliştiriyoruz."
+    },
+    {
+      "icon": "fa fa-bar-chart",
+      "name": "Veri Analizi",
+      "text": "Verilerinizi analiz ederek, stratejik kararlar almanıza yardımcı olacak anlamlı içgörüler sağlıyoruz."
+    },
+    {
+      "icon": "fa fa-laptop",
+      "name": "Web Geliştirme",
+      "text": "Özelleştirilmiş web çözümleri sunarak, kullanıcı deneyimini ön planda tutarak yüksek kaliteli projeler tasarlıyoruz."
+    },
+    {
+      "icon": "fa fa-cogs",
+      "name": "Otomasyon Çözümleri",
+      "text": "İş süreçlerinizi hızlandırmak ve verimliliği artırmak için özel otomasyon çözümleri sunuyoruz."
+    },
+    {
+      "icon": "fa fa-search",
+      "name": "Arttırılmış Gerçeklik (AR) Çözümleri",
+      "text": "Yenilikçi arttırılmış gerçeklik çözümleriyle, etkileşimli ve etkileyici deneyimler sunuyoruz."
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/p1.jpeg",
+      "name": "Mehmet Başgöze",
+      "job": "Scrum Master",
+      "instagram": "https://www.instagram.com/memollizm?igsh=a3N6ZGtnbnI4NmIz",
+      "github": "https://github.com/memollizm",
+      "linkedin": "https://www.linkedin.com/in/mehmetbasgoze/"
+    },
+    {
+      "img": "img/team/p3.jpeg",
+      "name": "Efe Eroğlu",
+      "job": "AI Developer",
+      "instagram": "https://www.instagram.com/eferogglu/",
+      "github": "https://github.com/Efe-Eroglu",
+      "linkedin": "https://www.linkedin.com/in/efeeroglu/"
+    },
+    {
+      "img": "img/team/p4.jpeg",
+      "name": "İbrahim Tuna Cört",
+      "job": "Full Stack Developer",
+      "instagram": "https://www.instagram.com/tunacrt052?igsh=MTZxMHowNzc5bDQwOA==",
+      "github": "https://github.com/TunaCrt",
+      "linkedin": "https://www.linkedin.com/in/ibrahim-tuna-cort/"
+    },
+    {
+      "img": "img/team/p2.jpg",
+      "name": "Muhammed İkbal Aşık",
+      "job": "Mobile Developer",
+      "instagram": "https://www.instagram.com/muhammedikbal_asik?igsh=MWc5MHR1aHhiMnFseg==",
+      "github": "https://github.com/Muhammetikbal826",
+      "linkedin": "https://www.linkedin.com/in/muhammed-ikbal-asik/ "
+    }
+  ],
+  "Contact": {
+    "address": "23000 Elazığ Fırat Üniversitesi",
+    "phone": "+90 555 555 55 55",
+    "email": "yapayline@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/yapayline/",
+    "instagram": "https://www.instagram.com/ogrencimofficial?igsh=MTVhdXQ4ODY4OXNqZQ==",
+    "github": "https://github.com/YapayLine"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Kolay İletişim",
+      "text": "Müşterilerinizle hızlı ve etkili iletişim kurmanızı sağlayacak araçlar sunuyoruz."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Etkili Tanıtım",
+      "text": "Ürün ve hizmetlerinizi daha geniş kitlelere ulaştırmak için güçlü tanıtım stratejileri geliştiriyoruz."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Ekip Çalışması",
+      "text": "Ekip içi işbirliği ve koordinasyonu artırarak, projelerinizi daha verimli hale getiriyoruz."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Yaratıcı Çözümler",
+      "text": "Yenilikçi ve yaratıcı çözümlerle, iş süreçlerinize değer katacak etkili stratejiler sunuyoruz."
+    }
+  ]
+}
