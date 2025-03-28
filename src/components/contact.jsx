@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import "../style/contact.css";
+import { Link } from "react-router-dom";
 
 const NotificationPopup = ({ status, message, onClose }) => {
   useEffect(() => {
@@ -224,7 +225,8 @@ export const Contact = (props) => {
       <div id="footer">
         <div className="container text-center">
           <p>
-            &copy; 2025 YapayLine Tüm Hakları Saklıdır | <a href="/privacy-policy">Gizlilik Politikası</a>
+            &copy; 2025 YapayLine Tüm Hakları Saklıdır |{" "}
+            <Link to="/privacy-policy">Gizlilik Politikası</Link>
           </p>
         </div>
       </div>
