@@ -5,7 +5,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
@@ -14,11 +13,10 @@ import { Services } from "./components/services";
 import { Gallery } from "./components/gallery";
 import { Team } from "./components/Team";
 import Contact from "./components/contact";
-
+import PrivacyPolicy from "./components/privacyPolicy";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
-import PrivacyPolicy from "./components/privacyPolicy";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -33,7 +31,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/">
       <Routes>
         <Route
           path="/"
@@ -50,8 +48,11 @@ const App = () => {
             </>
           }
         />
+
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/#/privacy-policy" element={<PrivacyPolicy />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );

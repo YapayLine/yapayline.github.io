@@ -226,7 +226,7 @@ export const Contact = (props) => {
         <div className="container text-center">
           <p>
             &copy; 2025 YapayLine Tüm Hakları Saklıdır |{" "}
-            <Link to="/privacy-policy">Gizlilik Politikası</Link>
+            <a href="#/privacy-policy">Gizlilik Politikası</a>
           </p>
         </div>
       </div>
