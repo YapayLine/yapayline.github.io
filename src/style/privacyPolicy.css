@@ -1,0 +1,248 @@
+/* PrivacyPolicy.css */
+:root {
+  --pp-primary: #2563eb;
+  --pp-primary-hover: #1d4ed8;
+  --pp-secondary: #60a5fa;
+  --pp-background: #f8fafc;
+  --pp-text: #1e293b;
+  --pp-border: #e2e8f0;
+}
+
+.pp-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  background: var(--pp-background);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Geri Dön Butonu */
+.pp-back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.pp-back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: var(--pp-primary);
+  color: white;
+}
+
+/* Header Stili */
+.pp-header {
+  position: relative;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pp-header-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.pp-main-title {
+  font-size: 4.8rem;
+  color: var(--pp-text);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.pp-update-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.pp-header-line {
+  height: 4px;
+  width: 120px;
+  background: var(--pp-primary);
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* İçerik Stilleri */
+.pp-intro {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease-out;
+}
+
+.pp-intro-text {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+
+.pp-section {
+  background: white;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  padding: 3rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+  border: 1px solid rgba(224, 242, 254, 0.5);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pp-section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--pp-border);
+}
+
+.pp-section-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--pp-primary);
+  margin-right: 2rem;
+  min-width: 60px;
+}
+
+.pp-section-title {
+  font-size: 1.8rem;
+  color: var(--pp-text);
+  font-weight: 600;
+}
+
+.pp-section-body {
+  padding-left: 80px;
+}
+
+.pp-section-text {
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.pp-additional-content {
+  color: #475569;
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  border-left: 4px solid var(--pp-primary);
+}
+
+/* Liste Stilleri */
+.pp-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.pp-list-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: #f1f5f9;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+  color: #334155;
+  line-height: 1.7;
+}
+
+.pp-list-item:hover {
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.pp-list-icon {
+  width: 35px;
+  height: 35px;
+  background: var(--pp-primary);
+  border-radius: 8px;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pp-list-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+/* Animasyonlar */
+.pp-animate-active {
+  opacity: 1 !important;
+  transform: translate(0) !important;
+}
+
+@media (max-width: 1024px) {
+  .pp-section-body {
+    padding-left: 0;
+  }
+  
+  .pp-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .pp-section-number {
+    margin-bottom: 1rem;
+  }
+  
+  .pp-main-title {
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pp-container {
+    padding: 6rem 1rem 2rem;
+  }
+  
+  .pp-back-button {
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .pp-section {
+    padding: 2rem;
+  }
+  
+  .pp-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .pp-section-number {
+    font-size: 2rem;
+  }
+} 

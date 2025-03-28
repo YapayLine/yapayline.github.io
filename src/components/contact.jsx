@@ -223,7 +223,9 @@ export const Contact = (props) => {
 
       <div id="footer">
         <div className="container text-center">
-          <p>&copy; 2025 YapayLine Tüm Hakları Saklıdır</p>
+          <p>
+            &copy; 2025 YapayLine Tüm Hakları Saklıdır | <a href="/privacy-policy">Gizlilik Politikası</a>
+          </p>
         </div>
       </div>
     </div>
