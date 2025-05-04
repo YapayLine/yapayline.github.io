@@ -10,56 +10,59 @@ export const Gallery = (props) => {
   };
 
   return (
-    <div id="portfolio" className="text-center">
-      <div className="container">
-        <div className="section-title">
-          <h2>BAŞARI & PROJELERİMİZ</h2>
-          <p>
-          Galeriye göz atarak ekibimizin başarıyla tamamladığı projelere göz atabilirsiniz.
+    <section id="yapayline-gallery" className="yapayline-gallery-section">
+      <div className="yapayline-container">
+        <div className="yapayline-section-header">
+          <h2 className="yapayline-section-title">
+            <span className="yapayline-gradient-text">Başarı & Projelerimiz</span>
+          </h2>
+          <p className="yapayline-section-subtitle">
+            Galeriye göz atarak ekibimizin başarıyla tamamladığı projelere göz atabilirsiniz.
           </p>
+          <div className="yapayline-title-underline"></div>
         </div>
-        <div className="row">
-          <div className="portfolio-items">
-            {props.data ? (
-              <>
-                {props.data.map((d, i) => (
+
+        <div className="yapayline-gallery-grid">
+          {props.data ? (
+            <>
+              {props.data.map((d, i) => (
+                <div
+                  key={`${d.title}-${i}`}
+                  className="yapayline-gallery-item"
+                >
+                  <Image
+                    title={d.title}
+                    largeImage={d.largeImage}
+                    smallImage={d.smallImage}
+                  />
+                </div>
+              ))}
+              {Array(calculatePlaceholders(props.data))
+                .fill()
+                .map((_, i) => (
                   <div
-                    key={`${d.title}-${i}`}
-                    className="col-sm-6 col-md-4 col-lg-4"
+                    key={`placeholder-${i}`}
+                    className="yapayline-gallery-item"
                   >
-                    <Image
-                      title={d.title}
-                      largeImage={d.largeImage}
-                      smallImage={d.smallImage}
-                    />
-                  </div>
-                ))}
-                {Array(calculatePlaceholders(props.data))
-                  .fill()
-                  .map((_, i) => (
-                    <div
-                      key={`placeholder-${i}`}
-                      className="col-sm-6 col-md-4 col-lg-4"
-                    >
-                      <div className="placeholder-card">
-                        <img 
-                          src="/img/portfolio/placeholder.jpg" 
-                          alt="Coming soon"
-                          className="placeholder-image"
-                        />
-                        <div className="placeholder-overlay">
-                          Çok Yakında...
-                        </div>
+                    <div className="yapayline-placeholder-card">
+                      <img 
+                        src="/img/portfolio/placeholder.jpg" 
+                        alt="Coming soon"
+                        className="yapayline-placeholder-image"
+                      />
+                      <div className="yapayline-placeholder-overlay">
+                        <span>Yeni Proje</span>
+                        <p>Çok Yakında...</p>
                       </div>
                     </div>
-                  ))}
-              </>
-            ) : (
-              "Loading..."
-            )}
-          </div>
+                  </div>
+                ))}
+            </>
+          ) : (
+            <div className="yapayline-loading">Yükleniyor...</div>
+          )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

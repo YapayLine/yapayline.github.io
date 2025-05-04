@@ -68,7 +68,7 @@ export const Contact = (props) => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !message) {
@@ -76,22 +76,20 @@ export const Contact = (props) => {
       return;
     }
 
-    emailjs
-      .sendForm(
+    try {
+      const result = await emailjs.sendForm(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         e.target,
         process.env.REACT_APP_EMAILJS_USER_ID
-      )
-      .then(
-        (result) => {
-          clearState();
-          addNotification("success", "Mesajınız başarıyla gönderildi!");
-        },
-        (error) => {
-          addNotification("error", "Gönderim hatası! Lütfen tekrar deneyin.");
-        }
       );
+
+      clearState();
+      addNotification("success", "Mesajınız başarıyla gönderildi!");
+    } catch (error) {
+      console.error("[Contact] EmailJS.sendForm Error:", error);
+      addNotification("error", "Gönderim hatası! Lütfen tekrar deneyin.");
+    }
   };
 
   return (

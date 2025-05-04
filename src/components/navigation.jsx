@@ -51,9 +51,9 @@ export const Navigation = (props) => {
         >
           <ul className="nav navbar-nav navbar-right">
             {[
-              { text: "ÖZELLİKLER", href: "#features" },
-              { text: "HAKKIMIZDA", href: "#about" },
-              { text: "HİZMETLER", href: "#services" },
+              { text: "ÖZELLİKLER", href: "#yapayline-features" },
+              { text: "HAKKIMIZDA", href: "#yapayline-about" },
+              { text: "HİZMETLER", href: "#yapayline-services" },
               { text: "GALERİ", href: "#portfolio" },
               { text: "EKİBİMİZ", href: "#team" },
               { text: "İLETİŞİM", href: "#contact" },
