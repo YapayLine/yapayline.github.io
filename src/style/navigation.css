@@ -17,9 +17,9 @@
   font-size: 24px;
   font-weight: 700;
   transition: all 0.3s ease;
-  height: auto !important;       
+  height: auto !important;
   line-height: normal !important;
-  padding: 15px;                 
+  padding: 15px;
   overflow: visible !important;
 }
 
@@ -37,10 +37,11 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
-  padding: 15px 20px;
+  padding: 10px 20px; /* Padding'i biraz düzenledik */
   position: relative;
   transition: all 0.3s ease;
   opacity: 0.9;
+  border-radius: 20px; /* Yuvarlak kenarlar */
 }
 
 #yapayline-navbar .nav-link:hover,
@@ -48,11 +49,13 @@
   color: #fff;
   opacity: 1;
   transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1); /* Transparan beyaz arkaplan */
+  backdrop-filter: blur(5px); /* Hafif blur efekti */
 }
 
 #yapayline-navbar .nav-hover-indicator {
   position: absolute;
-  bottom: 10px;
+  bottom: 5px; /* Konumunu biraz yukarı aldık */
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -110,41 +113,42 @@
     padding: 10px 0;
     background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
   }
-  
+
   #yapayline-navbar .navbar-brand {
     font-size: 20px;
     padding: 15px;
   }
-  
+
   #yapayline-navbar .navbar-collapse {
     background: linear-gradient(135deg, #0f0f0f 0%, #1e1e2e 100%);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
+
   #yapayline-navbar .navbar-nav {
     margin: 0;
     background: transparent;
     display: flex;
     align-items: center;
   }
-  
+
   #yapayline-navbar .nav.navbar-nav.navbar-right li {
     float: none;
     text-align: center;
   }
-  
+
   #yapayline-navbar .nav.navbar-nav.navbar-right li a {
-    padding: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    opacity: 1;
+    border-radius: 0;
+    background: transparent !important; 
+    margin: 0 15px; 
   }
-  
+
   #yapayline-navbar .nav-hover-indicator {
     display: none;
   }
-  
+
   #yapayline-navbar .nav-link:hover {
+    background: transparent !important; 
     transform: none;
   }
 }
