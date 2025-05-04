@@ -14,7 +14,7 @@ export const Gallery = (props) => {
       <div className="yapayline-container">
         <div className="yapayline-section-header">
           <h2 className="yapayline-section-title">
-            <span className="yapayline-gradient-text">Başarı & Projelerimiz</span>
+            <span className="yapayline-gradient-text">Başarı & PROJELERİMİZ</span>
           </h2>
           <p className="yapayline-section-subtitle">
             Galeriye göz atarak ekibimizin başarıyla tamamladığı projelere göz atabilirsiniz.

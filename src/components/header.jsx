@@ -30,7 +30,7 @@ export const Header = (props) => {
                 <span className="subtitle-underline"></span>
               </p>
               <a
-                href="#features"
+                href="#yapayline-features"
                 className="btn btn-hero btn-gradient-hover page-scroll"
               >
                 <span>Daha Fazla</span>

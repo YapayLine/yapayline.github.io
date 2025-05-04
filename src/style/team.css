@@ -1,122 +1,244 @@
-/* Temel Stiller */
-#team {
-  padding: 80px 0;
-  background: #f8f9fa;
+/* YapayLine Team - Modern Tasarım */
+.yapayline-team-section {
+  --gradient-primary: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --gradient-secondary: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --bg-dark: #0f0f1a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  padding: 8rem 0;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
 }
 
-.section-title {
-  margin-bottom: 50px;
+.yapayline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Animasyonlar */
-.team {
+.yapayline-section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.yapayline-section-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.yapayline-gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.yapayline-section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.yapayline-title-underline {
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: underlineGrow 1s ease-out 0.3s forwards;
+}
+
+.yapayline-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.yapayline-team-member {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  margin-bottom: 30px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.team.active {
+.yapayline-team-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Thumbnail Stilleri */
-.thumbnail {
-  background: white;
-  border-radius: 10px;
+.yapayline-member-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+}
+
+.yapayline-member-image-container {
   position: relative;
-}
-
-.team-img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Kare formatta tüm resimler */
-  object-fit: cover;
-  transition: all 0.3s ease;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
-/* Sosyal Medya İkonları */
-.social-links {
+.yapayline-member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.yapayline-image-overlay {
   position: absolute;
-  top: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.yapayline-social-links {
+  position: absolute;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   z-index: 2;
 }
 
-.social-links a {
-  color: white;
-  font-size: 2rem;
+.yapayline-social-link {
+  color: var(--text-primary);
+  font-size: 2.8rem;
   transition: all 0.3s ease;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.777);
 }
 
-.social-links a:hover {
-  transform: translateY(-5px);
+.yapayline-member-info {
+  padding: 2rem;
+  text-align: center;
+}
+
+.yapayline-member-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.yapayline-member-position {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.yapayline-member-divider {
+  width: 50px;
+  height: 2px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 /* Hover Efektleri */
-.thumbnail:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
+.yapayline-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 210, 255, 0.3);
 }
 
-.thumbnail:hover .social-links {
+.yapayline-member-card:hover .yapayline-member-image {
+  transform: scale(1.05);
+}
+
+.yapayline-member-card:hover .yapayline-image-overlay {
+  opacity: 0.1;
+}
+
+.yapayline-member-card:hover .yapayline-social-links {
   opacity: 1;
 }
 
-.thumbnail:hover .team-img {
-  filter: brightness(0.7);
+.yapayline-social-link:hover {
+  transform: translateY(-5px);
 }
 
-/* Caption Stilleri */
-.caption {
-  padding: 20px;
+.yapayline-social-link:nth-child(1):hover {
+  color: #0a66c2;
 }
 
-.caption h4 {
-  margin-bottom: 10px;
-  color: #2d3748;
+.yapayline-social-link:nth-child(2):hover {
+  color: #e4405f;
 }
 
-.caption p {
-  color: #718096;
-  font-size: 1.3rem;
+.yapayline-social-link:nth-child(3):hover {
+  color: #181717;
 }
 
-/* Renk Efektleri */
-.fa-linkedin:hover {
-  color: #0a66c2 !important;
-}
-.fa-instagram:hover {
-  color: #e4405f !important;
-}
-.fa-github:hover {
-  color: #181717 !important;
+/* Animasyonlar */
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .yapayline-team-grid {
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 992px) {
-  .team {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .yapayline-team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .yapayline-section-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .yapayline-team-section {
+    padding: 6rem 0;
+  }
+  
+  .yapayline-team-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 576px) {
-  .team {
-    flex: 0 0 100%;
-    max-width: 100%;
+  .yapayline-team-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
   }
-
-  .social-links a {
-    font-size: 1.8rem;
+  
+  .yapayline-section-title {
+    font-size: 2.4rem;
+  }
+  
+  .yapayline-member-name {
+    font-size: 1.4rem;
+  }
+  
+  .yapayline-member-position {
+    font-size: 1rem;
   }
 }

@@ -54,9 +54,9 @@ export const Navigation = (props) => {
               { text: "ÖZELLİKLER", href: "#yapayline-features" },
               { text: "HAKKIMIZDA", href: "#yapayline-about" },
               { text: "HİZMETLER", href: "#yapayline-services" },
-              { text: "GALERİ", href: "#portfolio" },
-              { text: "EKİBİMİZ", href: "#team" },
-              { text: "İLETİŞİM", href: "#contact" },
+              { text: "GALERİ", href: "#yapayline-gallery" },
+              { text: "EKİBİMİZ", href: "#yapayline-team" },
+              { text: "İLETİŞİM", href: "#yapayline-contact" },
             ].map((item, index) => (
               <li key={index}>
                 <a 
