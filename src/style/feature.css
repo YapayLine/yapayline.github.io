@@ -1,20 +1,413 @@
-.feature-item {
-    opacity: 0;
-    transition: all 0.6s ease-out;
-    transform: translateY(20px); /* Hafif aşağı kaydırma */
+/* YapayLine Features - Hiyerarşik ve Scope'lu Stiller */
+.yapayline-features {
+  --primary-gradient: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --bg-dark: #0a0a12;
+  --bg-light: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  padding: 6rem 0;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.yapayline-features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 75% 50%, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.yapayline-features__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.yapayline-features__header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.yapayline-features__title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.yapayline-features__title-highlight {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.yapayline-features__title-underline {
+  width: 6rem;
+  height: 0.25rem;
+  background: var(--primary-gradient);
+  margin: 0 auto;
+  border-radius: 0.25rem;
+}
+
+.yapayline-features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.yapayline-features__item {
+  background: var(--bg-light);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.yapayline-features__item--left {
+  transform: translateX(-3rem);
+}
+
+.yapayline-features__item--right {
+  transform: translateX(3rem);
+}
+
+.yapayline-features__item--visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+.yapayline-features__icon-container {
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 210, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.yapayline-features__icon {
+  font-size: 2.25rem;
+  color: #00d2ff;
+}
+
+.yapayline-features__item-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.yapayline-features__item-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.yapayline-features__hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.yapayline-features__item:hover {
+  transform: translateY(-0.5rem) !important;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.yapayline-features__item:hover .yapayline-features__icon-container {
+  background: rgba(0, 210, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.yapayline-features__item:hover .yapayline-features__hover-effect {
+  opacity: 0.1;
+}
+
+.yapayline-features__loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 992px) {
+  .yapayline-features {
+    padding: 5rem 0;
   }
   
-  /* Sol taraftan gelecekler için */
-  .feature-item.left {
-    transform: translateX(-50px);
+  .yapayline-features__title {
+    font-size: 2.5rem;
   }
   
-  /* Sağ taraftan gelecekler için */
-  .feature-item.right {
-    transform: translateX(50px);
+  .yapayline-features__grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .yapayline-features__item {
+    padding: 2rem;
   }
   
-  .feature-item.visible {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
+  .yapayline-features__item-title {
+    font-size: 1.3rem;
   }
+  
+  .yapayline-features__item-desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .yapayline-features__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .yapayline-features__item--left,
+  .yapayline-features__item--right {
+    transform: translateY(2rem);
+  }
+  
+  .yapayline-features__item--visible {
+    transform: translateY(0) !important;
+  }
+}
+
+
+/* YapayLine 1x4 Features - Modern Animasyonlu Tasarım */
+.yapayline-features-section {
+  --gradient-primary: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --gradient-secondary: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --bg-dark: #0a0a1a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.08);
+  padding: 8rem 0;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.yapayline-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.yapayline-features-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.yapayline-features-main-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.yapayline-gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.yapayline-title-underline {
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: underlineGrow 1s ease-out 0.5s forwards;
+}
+
+.yapayline-features-grid-1x4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.yapayline-feature-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.yapayline-feature-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.yapayline-feature-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yapayline-icon-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  border-radius: 50%;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.yapayline-feature-icon {
+  font-size: 2.5rem;
+  color: #00d2ff;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.yapayline-feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.yapayline-feature-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.yapayline-feature-hover-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+/* Animasyonlar */
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Hover Efektleri */
+.yapayline-feature-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.yapayline-feature-card:hover .yapayline-icon-backdrop {
+  transform: scale(1);
+  opacity: 0.2;
+}
+
+.yapayline-feature-card:hover .yapayline-feature-icon {
+  transform: scale(1.1);
+}
+
+.yapayline-feature-card:hover .yapayline-feature-hover-light {
+  opacity: 0.08;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .yapayline-features-grid-1x4 {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .yapayline-features-grid-1x4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .yapayline-feature-card {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .yapayline-features-section {
+    padding: 6rem 0;
+  }
+  
+  .yapayline-features-main-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .yapayline-features-grid-1x4 {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .yapayline-features-main-title {
+    font-size: 2.4rem;
+  }
+  
+  .yapayline-feature-title {
+    font-size: 1.4rem;
+  }
+  
+  .yapayline-feature-description {
+    font-size: 1.1rem;
+  }
+}

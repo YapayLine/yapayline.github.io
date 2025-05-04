@@ -1,62 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "../style/navigation.css"; // Özel CSS dosyamız
 
 export const Navigation = (props) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+    <nav 
+      id="yapayline-navbar" 
+      className={`navbar navbar-fixed-top ${scrolled ? "navbar-scrolled" : ""} ${mobileMenuOpen ? "mobile-open" : ""}`}
+    >
       <div className="container">
         <div className="navbar-header">
           <button
             type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
+            className="navbar-toggle"
+            onClick={toggleMobileMenu}
+            aria-expanded={mobileMenuOpen}
           >
-            {" "}
-            <span className="sr-only">Gezintiyi Aç</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
+            <span className="sr-only">Gezintiyi Aç</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
-            YapayLine 
-          </a>{" "}
+            <span className="logo-gradient">Yapay</span>Line
+          </a>
         </div>
 
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
+        <div 
+          className={`navbar-collapse ${mobileMenuOpen ? "in" : "collapse"}`}
+          id="yapayline-navbar-collapse"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#features" className="page-scroll">
-                ÖZELLİKLER
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="page-scroll">
-                HAKKIMIZDA
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="page-scroll">
-                HİZMETLER
-              </a>
-            </li>
-            <li>
-              <a href="#portfolio" className="page-scroll">
-                GALERİ
-              </a>
-            </li>
-            <li>
-              <a href="#team" className="page-scroll">
-                EKİBİMİZ
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="page-scroll">
-                İLETİŞİM
-              </a>
-            </li>
+            {[
+              { text: "ÖZELLİKLER", href: "#features" },
+              { text: "HAKKIMIZDA", href: "#about" },
+              { text: "HİZMETLER", href: "#services" },
+              { text: "GALERİ", href: "#portfolio" },
+              { text: "EKİBİMİZ", href: "#team" },
+              { text: "İLETİŞİM", href: "#contact" },
+            ].map((item, index) => (
+              <li key={index}>
+                <a 
+                  href={item.href} 
+                  className="page-scroll nav-link"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.text}
+                  <span className="nav-hover-indicator"></span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

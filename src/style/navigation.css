@@ -1,26 +1,150 @@
+#yapayline-navbar {
+  background: transparent;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border: none;
+  padding: 20px 0;
+}
+
+#yapayline-navbar.navbar-scrolled {
+  background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+  padding: 10px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+#yapayline-navbar .navbar-brand {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  height: auto !important;       
+  line-height: normal !important;
+  padding: 15px;                 
+  overflow: visible !important;
+}
+
+#yapayline-navbar .logo-gradient {
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+#yapayline-navbar .nav-link {
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  padding: 15px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+#yapayline-navbar .nav-link:hover,
+#yapayline-navbar .nav-link:focus {
+  color: #fff;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+#yapayline-navbar .nav-hover-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  transition: width 0.3s ease;
+}
+
+#yapayline-navbar .nav-link:hover .nav-hover-indicator {
+  width: 60%;
+}
+
+#yapayline-navbar .navbar-toggle {
+  border: none;
+  background: transparent !important;
+}
+
+#yapayline-navbar .navbar-toggle:hover {
+  background: transparent !important;
+}
+
+#yapayline-navbar .navbar-toggle .icon-bar {
+  width: 22px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+#yapayline-navbar .navbar-toggle .icon-bar:nth-child(2) {
+  transform: rotate(0deg) translateY(0);
+}
+
+#yapayline-navbar .navbar-toggle .icon-bar:nth-child(3) {
+  opacity: 1;
+}
+
+#yapayline-navbar .navbar-toggle .icon-bar:nth-child(4) {
+  transform: rotate(0deg) translateY(0);
+}
+
+#yapayline-navbar.mobile-open .navbar-toggle .icon-bar:nth-child(2) {
+  transform: rotate(45deg) translateY(5px) translateX(4px);
+}
+
+#yapayline-navbar.mobile-open .navbar-toggle .icon-bar:nth-child(3) {
+  opacity: 0;
+}
+
+#yapayline-navbar.mobile-open .navbar-toggle .icon-bar:nth-child(4) {
+  transform: rotate(-45deg) translateY(-5px) translateX(4px);
+}
+
+/* Mobile Responsive Stiller */
 @media (max-width: 768px) {
-    .navbar-brand {
-      font-size: 20px !important;
-      padding: 15px !important;
-    }
-    
-    .navbar-toggle {
-      margin-right: 0;
-      padding: 9px 10px;
-    }
-    
-    .navbar-nav {
-      margin: 0 -15px;
-      background: rgba(255, 255, 255, 0.9);
-    }
-    
-    .nav.navbar-nav.navbar-right li {
-      float: none;
-      text-align: center;
-    }
-    
-    .nav.navbar-nav.navbar-right li a {
-      padding: 15px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+  #yapayline-navbar {
+    padding: 10px 0;
+    background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
   }
+  
+  #yapayline-navbar .navbar-brand {
+    font-size: 20px;
+    padding: 15px;
+  }
+  
+  #yapayline-navbar .navbar-collapse {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1e1e2e 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  #yapayline-navbar .navbar-nav {
+    margin: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+  }
+  
+  #yapayline-navbar .nav.navbar-nav.navbar-right li {
+    float: none;
+    text-align: center;
+  }
+  
+  #yapayline-navbar .nav.navbar-nav.navbar-right li a {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 1;
+  }
+  
+  #yapayline-navbar .nav-hover-indicator {
+    display: none;
+  }
+  
+  #yapayline-navbar .nav-link:hover {
+    transform: none;
+  }
+}

@@ -1,58 +1,60 @@
 import React, { useEffect, useRef } from "react";
-import "../style/feature.css"
+import "../style/feature.css";
+
 export const Features = (props) => {
-  const itemsRef = useRef([]);
+  const featureItems = useRef([]);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.add('yapayline-feature-animate');
+            observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px",
-      }
+      { threshold: 0.15 }
     );
 
-    itemsRef.current.forEach((item) => {
-      if (item) observer.observe(item);
-    });
-
-    return () => {
-      itemsRef.current.forEach((item) => {
-        if (item) observer.unobserve(item);
-      });
-    };
-  }, [props.data]); // props.data değiştiğinde yeniden oluştur
+    featureItems.current.forEach((item) => item && observer.observe(item));
+    return () => featureItems.current.forEach((item) => item && observer.unobserve(item));
+  }, [props.data]);
 
   return (
-    <div id="features" className="text-center" style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-      <div className="container">
-        <div className="col-md-10 col-md-offset-1 section-title" style={{ marginTop: '50px' }}>
-          <h2>ÖZELLİKLER</h2>
+    <section id="yapayline-features" className="yapayline-features-section" ref={sectionRef}>
+      <div className="yapayline-features-container">
+        <div className="yapayline-features-header">
+          <h2 className="yapayline-features-main-title">
+            <span className="yapayline-gradient-text">Öne Çıkan Özellikler</span>
+          </h2>
+          <div className="yapayline-title-underline"></div>
         </div>
-        <div className="row">
-          {props.data
-            ? props.data.map((d, i) => (
-                <div 
-                  key={`${d.title}-${i}`} 
-                  className={`col-xs-6 col-md-3 feature-item ${i % 2 === 0 ? 'left' : 'right'}`}
-                  ref={(el) => (itemsRef.current[i] = el)}
-                >
-                  <i className={d.icon}></i>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
+
+        <div className="yapayline-features-grid-1x4">
+          {props.data ? (
+            props.data.slice(0, 4).map((feature, index) => (
+              <div
+                key={`feature-${index}`}
+                ref={(el) => (featureItems.current[index] = el)}
+                className="yapayline-feature-card"
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <div className="yapayline-feature-icon-wrapper">
+                  <div className="yapayline-icon-backdrop"></div>
+                  <i className={`${feature.icon} yapayline-feature-icon`}></i>
                 </div>
-              ))
-            : "Loading..."}
+                <h3 className="yapayline-feature-title">{feature.title}</h3>
+                <p className="yapayline-feature-description">{feature.text}</p>
+                <div className="yapayline-feature-hover-light"></div>
+              </div>
+            ))
+          ) : (
+            <div className="yapayline-features-loading">Yükleniyor...</div>
+          )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
