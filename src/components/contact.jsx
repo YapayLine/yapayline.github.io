@@ -10,10 +10,10 @@ const NotificationPopup = ({ status, message, onClose }) => {
   }, [onClose]);
 
   return (
-    <div className={`notification ${status}`}>
-      <div className="notification-content">
+    <div className={`yapayline-notification ${status}`}>
+      <div className="yapayline-notification-content">
         <span>{message}</span>
-        <button className="close-btn" onClick={onClose}>
+        <button className="yapayline-close-btn" onClick={onClose}>
           &times;
         </button>
       </div>
@@ -32,13 +32,14 @@ export const Contact = (props) => {
   const [notifications, setNotifications] = useState([]);
   const formRef = useRef(null);
   const infoRef = useRef(null);
+  const socialRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("active");
+            entry.target.classList.add("yapayline-visible");
           }
         });
       },
@@ -47,6 +48,7 @@ export const Contact = (props) => {
 
     if (formRef.current) observer.observe(formRef.current);
     if (infoRef.current) observer.observe(infoRef.current);
+    if (socialRef.current) observer.observe(socialRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -93,8 +95,8 @@ export const Contact = (props) => {
   };
 
   return (
-    <div>
-      <div className="notification-container">
+    <div className="yapayline-contact-page">
+      <div className="yapayline-notification-container">
         {notifications.map((notification) => (
           <NotificationPopup
             key={notification.id}
@@ -105,129 +107,119 @@ export const Contact = (props) => {
         ))}
       </div>
 
-      <div id="contact">
-        <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
-                <h2>İLETİŞİME GEÇİN</h2>
-                <p>
+      <section id="yapayline-contact" className="yapayline-contact-section">
+        <div className="yapayline-container-contact">
+          <div className="yapayline-contact-grid">
+            <div className="yapayline-contact-form-wrapper" ref={formRef}>
+              <div className="yapayline-section-header-contact">
+                <h2 className="yapayline-section-title-contact">
+                  <span className="yapayline-gradient-text-contact">İletişime Geçin</span>
+                </h2>
+                <p className="yapayline-section-subtitle-contact">
                   Bize ulaşmak için aşağıdaki formu doldurun, en kısa sürede
                   geri dönüş yapacağız.
                 </p>
+                <div className="yapayline-title-underline-contact"></div>
               </div>
-              <form
-                ref={formRef}
-                name="sentMessage"
-                onSubmit={handleSubmit}
-                className="contact-animate"
-              >
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="name"
-                        className="form-control"
-                        placeholder="İsim"
-                        required
-                        value={name}
-                        onChange={handleChange}
-                      />
-                    </div>
+              
+              <form onSubmit={handleSubmit} className="yapayline-contact-form">
+                <div className="yapayline-form-row-contact">
+                  <div className="yapayline-form-group-contact">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="İsim"
+                      required
+                      value={name}
+                      onChange={handleChange}
+                      className="yapayline-form-input-contact"
+                    />
+                    <span className="yapayline-input-border-contact"></span>
                   </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                        required
-                        value={email}
-                        onChange={handleChange}
-                      />
-                    </div>
+                  <div className="yapayline-form-group-contact">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      value={email}
+                      onChange={handleChange}
+                      className="yapayline-form-input-contact"
+                    />
+                    <span className="yapayline-input-border-contact"></span>
                   </div>
                 </div>
-                <div className="form-group">
+                <div className="yapayline-form-group-contact">
                   <textarea
                     name="message"
-                    className="form-control message-textarea"
                     rows="4"
                     placeholder="Mesajınız"
                     required
                     value={message}
                     onChange={handleChange}
-                    style={{ resize: "vertical" }}
+                    className="yapayline-form-textarea"
                   ></textarea>
+                  <span className="yapayline-input-border-contact"></span>
                 </div>
-                <button type="submit" className="btn btn-custom btn-lg">
-                  Gönder
+                <button type="submit" className="yapayline-submit-btn-contact">
+                  <span>Gönder</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </button>
               </form>
             </div>
-          </div>
 
-          <div
-            ref={infoRef}
-            className="col-md-3 col-md-offset-1 contact-info contact-animate"
-          >
-            <div className="contact-item">
-              <h3>İletişim Bilgileri</h3>
-              <p>
-                <span>
-                  <i className="fas fa-map-marker-alt"></i> Adres
-                </span>
-                {props.data?.address || "Yükleniyor..."}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="far fa-envelope"></i> Email
-                </span>
-                {props.data?.email || "Yükleniyor..."}
-              </p>
-            </div>
-          </div>
-
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  {props.data &&
-                    [
-                      { platform: "linkedin", icon: "linkedin" },
-                      { platform: "github", icon: "github" },
-                      { platform: "instagram", icon: "instagram" },
-                    ].map((social) => (
-                      <li key={social.platform}>
-                        <a
-                          href={props.data[social.platform] || "#"}
-                          className={`${social.platform}-btn`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <i className={`fab fa-${social.icon}`}></i>
-                        </a>
-                      </li>
-                    ))}
-                </ul>
+            <div className="yapayline-contact-info" ref={infoRef}>
+              <div className="yapayline-info-card-contact">
+                <h3 className="yapayline-info-title-contact">İletişim Bilgileri</h3>
+                <div className="yapayline-info-item-contact">
+                  <i className="fas fa-map-marker-alt yapayline-info-icon-contact"></i>
+                  <p>{props.data?.address || "Yükleniyor..."}</p>
+                </div>
+                <div className="yapayline-info-item-contact">
+                  <i className="far fa-envelope yapayline-info-icon-contact"></i>
+                  <p>{props.data?.email || "Yükleniyor..."}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div id="footer">
-        <div className="container text-center">
-          <p>
+          <div className="yapayline-social-links-contact" ref={socialRef}>
+            <ul className="yapayline-social-list-contact">
+              {props.data &&
+                [
+                  { platform: "linkedin", icon: "linkedin" },
+                  { platform: "github", icon: "github" },
+                  { platform: "instagram", icon: "instagram" },
+                ].map((social) => (
+                  <li key={social.platform} className="yapayline-social-item-contact">
+                    <a
+                      href={props.data[social.platform] || "#"}
+                      className={`yapayline-social-link yapayline-${social.platform}-btn-contact`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className={`fab fa-${social.icon}`}></i>
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer className="yapayline-footer">
+        <div className="yapayline-container">
+          <p className="yapayline-footer-text">
             &copy; 2025 YapayLine Tüm Hakları Saklıdır |{" "}
-            <a href="#/privacy-policy">Gizlilik Politikası</a>
+            <Link to="/privacy-policy" className="yapayline-footer-link">
+              Gizlilik Politikası
+            </Link>
           </p>
         </div>
-      </div>
+      </footer>
     </div>
   );
 };

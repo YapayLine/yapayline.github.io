@@ -1,4 +1,17 @@
-.notification-container {
+/* YapayLine Contact - Modern Tasarım */
+.yapayline-contact-page {
+  --gradient-primary: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --gradient-secondary: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --bg-dark: #101022;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-active: #00d2ff;
+  color: var(--text-primary);
+}
+
+.yapayline-notification-container {
   position: fixed;
   top: 25px;
   right: 25px;
@@ -6,25 +19,26 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  font-family: "Segoe UI", sans-serif;
 }
 
-.notification {
+.yapayline-notification {
   padding: 20px 25px;
   border-radius: 12px;
   color: white;
   display: flex;
   align-items: center;
   min-width: 320px;
-  animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: yapaylineSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
   font-size: 1rem;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.notification::before {
+.yapayline-notification::before {
   content: "";
   position: absolute;
   left: 0;
@@ -34,15 +48,15 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-.notification.success {
-  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+.yapayline-notification.success {
+  background: rgba(76, 175, 80, 0.9);
 }
 
-.notification.error {
-  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+.yapayline-notification.error {
+  background: rgba(244, 67, 54, 0.9);
 }
 
-@keyframes slideIn {
+@keyframes yapaylineSlideIn {
   from {
     transform: translateX(120%);
     opacity: 0;
@@ -53,7 +67,7 @@
   }
 }
 
-.close-btn {
+.yapayline-close-btn {
   background: none;
   border: none;
   color: white;
@@ -70,99 +84,368 @@
   transform: translateY(-50%);
 }
 
-.close-btn:hover {
+.yapayline-close-btn:hover {
   opacity: 1;
   transform: translateY(-50%) scale(1.15);
 }
 
-.notification-content {
+.yapayline-notification-content {
   display: flex;
   align-items: center;
   width: 100%;
   padding-right: 40px;
 }
-.social ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
 
-.social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(4px);
-}
-
-.social i {
-  color: #fff; 
-  font-size: 2.2rem;
-  transition: all 0.3s ease;
-}
-
-.social a.linkedin-btn:hover {
-  border-color: #00b3ff;
-  background: rgba(0, 119, 181, 0.15);
-  box-shadow: 0 12px 25px rgba(0, 119, 181, 0.25);
-}
-
-.social a.linkedin-btn:hover i {
-  color: #25a9f1;
-}
-
-.social a.github-btn:hover {
-  border-color: #333;
-  background: rgba(0, 0, 0, 0.15);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-.social a.github-btn:hover i {
-  color: #333;
-}
-
-.social a.instagram-btn {
+.yapayline-contact-section {
+  padding: 8rem 0;
+  background-color: var(--bg-dark);
   position: relative;
   overflow: hidden;
 }
 
-.social a.instagram-btn:hover {
+.yapayline-container-contact {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.yapayline-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+.yapayline-section-header-contact {
+  margin-bottom: 3rem;
+}
+
+.yapayline-section-title-contact {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.yapayline-gradient-text-contact {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.yapayline-section-subtitle-contact {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.yapayline-title-underline-contact {
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: yapaylineUnderlineGrow 1s ease-out 0.3s forwards;
+}
+
+.yapayline-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.yapayline-form-row-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.yapayline-form-group-contact {
+  position: relative;
+}
+
+.yapayline-form-input-contact,
+.yapayline-form-textarea {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.yapayline-form-input-contact:focus,
+.yapayline-form-textarea:focus {
+  outline: none;
+  border-color: var(--border-active);
+  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.2);
+}
+
+.yapayline-input-border-contact {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.4s ease;
+}
+
+.yapayline-form-input-contact:focus + .yapayline-input-border-contact,
+.yapayline-form-textarea:focus + .yapayline-input-border-contact {
+  width: 100%;
+}
+
+.yapayline-form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.yapayline-submit-btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 1.2rem 2.5rem;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  max-width: 200px;
+}
+
+.yapayline-submit-btn-contact svg {
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.3s ease;
+}
+
+.yapayline-submit-btn-contact:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+}
+
+.yapayline-submit-btn-contact:hover svg {
+  transform: translateX(5px);
+}
+
+.yapayline-contact-info {
+  position: relative;
+}
+
+.yapayline-info-card-contact {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 3rem;
+  height: 100%;
+  transition: all 0.4s ease;
+}
+
+.yapayline-info-title-contact {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.yapayline-info-title-contact::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 3px;
+}
+
+.yapayline-info-item-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.yapayline-info-icon-contact {
+  font-size: 1.5rem;
+  color: #00d2ff;
+  margin-top: 5px;
+}
+
+.yapayline-social-links-contact {
+  margin-top: 4rem;
+}
+
+.yapayline-social-list-contact {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.yapayline-social-item-contact {
+  transition: transform 0.3s ease;
+}
+
+.yapayline-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.yapayline-social-link i {
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.yapayline-social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+.yapayline-linkedin-btn:hover {
+  border-color: #0a66c2;
+  background: rgba(10, 102, 194, 0.1);
+  box-shadow: 0 10px 20px rgba(10, 102, 194, 0.2);
+}
+
+.yapayline-linkedin-btn:hover i {
+  color: #0a66c2;
+}
+
+.yapayline-github-btn:hover {
+  border-color: #333;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.yapayline-github-btn:hover i {
+  color: #333;
+}
+
+.yapayline-instagram-btn:hover {
   border-color: #e1306c;
   background: linear-gradient(
     45deg,
-    rgba(225, 48, 108, 0.15),
-    rgba(131, 58, 180, 0.15)
+    rgba(225, 48, 108, 0.1),
+    rgba(131, 58, 180, 0.1)
   );
-  box-shadow: 0 12px 25px rgba(225, 48, 108, 0.25);
+  box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
 }
 
-.social a.instagram-btn:hover i {
+.yapayline-instagram-btn:hover i {
   background: linear-gradient(45deg, #833ab4, #e1306c);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Ortak hover efekti */
-.social a:hover {
-  transform: translateY(-5px) scale(1.1);
+.yapayline-footer {
+  padding: 3rem 0;
+  background: rgb(0, 0, 0) !important;
+  border-top: 1px solid var(--border-light);
 }
 
-/* Mobil uyumluluk */
-@media (max-width: 768px) {
-  .social a {
-    width: 55px;
-    height: 55px;
+.yapayline-footer-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+}
+
+.yapayline-footer-link {
+  color: #00d2ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.yapayline-footer-link:hover {
+  text-decoration: underline;
+  color: #3a7bd5;
+}
+
+/* Animasyonlar */
+@keyframes yapaylineUnderlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.yapayline-visible {
+  opacity: 1;
+  transform: translateY(0) !important;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 992px) {
+  .yapayline-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .social i {
-    font-size: 1.8rem;
+  .yapayline-form-row-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .yapayline-info-card-contact {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .yapayline-contact-section {
+    padding: 6rem 0;
+  }
+
+  .yapayline-section-title {
+    font-size: 2.8rem;
+  }
+
+  .yapayline-social-link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .yapayline-social-link i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .yapayline-section-title {
+    font-size: 2.4rem;
+  }
+
+  .yapayline-notification {
+    min-width: 280px;
+    padding: 15px 20px;
+  }
+
+  .yapayline-submit-btn-contact {
+    max-width: 100%;
   }
 }
