@@ -1,39 +1,238 @@
-.service-item {
-    opacity: 0;
-    transition: all 0.6s ease-out;
-    transform: translateY(20px);
+/* YapayLine Services - Modern Tasarım */
+.yapayline-services-section {
+  --gradient-primary: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --gradient-secondary: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --bg-dark: #0f0f1a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.1);
+  padding: 8rem 0;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.yapayline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.yapayline-section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.yapayline-section-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.yapayline-gradient-text-service {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.yapayline-section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.yapayline-title-underline {
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: underlineGrow 1s ease-out 0.3s forwards;
+}
+
+.yapayline-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.yapayline-service-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.yapayline-service-left {
+  transform: translateX(-50px);
+}
+
+.yapayline-service-right {
+  transform: translateX(50px);
+}
+
+.yapayline-service-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) !important;
+}
+
+.yapayline-service-icon-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yapayline-icon-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  border-radius: 50%;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.yapayline-service-icon {
+  font-size: 2.5rem;
+  color: #00d2ff;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.yapayline-service-content {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.yapayline-service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.yapayline-service-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.yapayline-service-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+/* Animasyonlar */
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Hover Efektleri */
+.yapayline-service-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.yapayline-service-card:hover .yapayline-icon-backdrop {
+  transform: scale(1);
+  opacity: 0.2;
+  animation: iconPulse 2s infinite;
+}
+
+.yapayline-service-card:hover .yapayline-service-icon {
+  transform: scale(1.1);
+}
+
+.yapayline-service-card:hover .yapayline-service-content {
+  transform: translateY(-5px);
+}
+
+.yapayline-service-card:hover .yapayline-service-hover-effect {
+  opacity: 0.1;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .yapayline-services-grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .yapayline-services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  /* Sol taraftan gelecekler için */
-  .service-item.left {
-    transform: translateX(-50px);
+  .yapayline-service-card {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .yapayline-services-section {
+    padding: 6rem 0;
   }
   
-  /* Sağ taraftan gelecekler için */
-  .service-item.right {
-    transform: translateX(50px);
+  .yapayline-section-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .yapayline-services-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
   }
   
-  .service-item.visible {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
+  .yapayline-section-title {
+    font-size: 2.4rem;
   }
   
-  /* İkonlar için ekstra animasyon */
-  .service-item.visible i {
-    animation: iconBounce 0.6s ease-out;
+  .yapayline-service-title {
+    font-size: 1.4rem;
   }
   
-  @keyframes iconBounce {
-    0% { transform: scale(0.8); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+  .yapayline-service-description {
+    font-size: 1rem;
   }
-  
-  .service-desc {
-    transition: transform 0.3s ease-out;
-  }
-  
-  .service-item:hover .service-desc {
-    transform: translateY(-5px);
-  }
+}

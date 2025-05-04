@@ -46,9 +46,9 @@ export const About = (props) => {
           </div>
           
           <div className="yapayline-about-content">
-            <div className="yapayline-section-header">
+            <div className="yapayline-section-header-about">
               <h2 ref={el => elements.current[1] = el} className="yapayline-about-title">
-                <span className="yapayline-gradient-text">Hakkımızda</span>
+                <span className="yapayline-gradient-text-about">Hakkımızda</span>
               </h2>
               <div className="yapayline-title-underline-about"></div>
             </div>

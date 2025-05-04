@@ -77,7 +77,7 @@
   position: relative;
 }
 
-.yapayline-section-header {
+.yapayline-section-header-about {
   margin-bottom: 2.5rem;
 }
 
@@ -91,7 +91,7 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.yapayline-gradient-text {
+.yapayline-gradient-text-about {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   background-clip: text;
