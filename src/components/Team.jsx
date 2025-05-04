@@ -60,20 +60,16 @@ export const Team = ({ data }) => {
                     src={process.env.PUBLIC_URL + member.img}
                     alt={member.name}
                     className="yapayline-member-image"
-                    onError={(e) => {
-                      e.target.src =
-                        process.env.PUBLIC_URL + "/img/placeholder.jpg";
-                    }}
                     loading="lazy"
                   />
                   <div className="yapayline-image-overlay"></div>
-                  <div className="yapayline-social-links">
+                  <div className="team-yapayline-social-links-team">
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="yapayline-social-link linkedin"
+                        className="team-yapayline-social-link linkedin"
                       >
                         <i className="fab fa-linkedin"></i>
                       </a>
@@ -83,7 +79,7 @@ export const Team = ({ data }) => {
                         href={member.instagram}
                         target="_blank"
                         rel="noreferrer"
-                        className="yapayline-social-link instagram"
+                        className="team-yapayline-social-link instagram"
                       >
                         <i className="fab fa-instagram"></i>
                       </a>
@@ -93,7 +89,7 @@ export const Team = ({ data }) => {
                         href={member.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="yapayline-social-link github"
+                        className="team-yapayline-social-link github"
                       >
                         <i className="fab fa-github"></i>
                       </a>

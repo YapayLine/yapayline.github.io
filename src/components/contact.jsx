@@ -113,7 +113,7 @@ export const Contact = (props) => {
             <div className="yapayline-contact-form-wrapper" ref={formRef}>
               <div className="yapayline-section-header-contact">
                 <h2 className="yapayline-section-title-contact">
-                  <span className="yapayline-gradient-text-contact">İletişime Geçin</span>
+                  <span className="yapayline-gradient-text-contact">İLETİŞİME GEÇİN</span>
                 </h2>
                 <p className="yapayline-section-subtitle-contact">
                   Bize ulaşmak için aşağıdaki formu doldurun, en kısa sürede
@@ -211,7 +211,7 @@ export const Contact = (props) => {
       </section>
 
       <footer className="yapayline-footer">
-        <div className="yapayline-container">
+        <div className="yapayline-container-contact">
           <p className="yapayline-footer-text">
             &copy; 2025 YapayLine Tüm Hakları Saklıdır |{" "}
             <Link to="/privacy-policy" className="yapayline-footer-link">

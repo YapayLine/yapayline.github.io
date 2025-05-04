@@ -109,7 +109,8 @@
   transition: opacity 0.4s ease;
 }
 
-.yapayline-social-links {
+/* Doğru konteyner ismi ve uygun ikon boyutu */
+.team-yapayline-social-links-team {
   position: absolute;
   top: 60%;
   left: 50%;
@@ -121,9 +122,9 @@
   z-index: 2;
 }
 
-.yapayline-social-link {
+.team-yapayline-social-link {
   color: var(--text-primary);
-  font-size: 2.8rem;
+  font-size: 2.8rem; /* küçültüldü */
   transition: all 0.3s ease;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.777);
 }
@@ -169,23 +170,23 @@
   opacity: 0.1;
 }
 
-.yapayline-member-card:hover .yapayline-social-links {
+.yapayline-member-card:hover .team-yapayline-social-links-team {
   opacity: 1;
 }
 
-.yapayline-social-link:hover {
+.team-yapayline-social-link:hover {
   transform: translateY(-5px);
 }
 
-.yapayline-social-link:nth-child(1):hover {
+.team-yapayline-social-link.linkedin:hover {
   color: #0a66c2;
 }
 
-.yapayline-social-link:nth-child(2):hover {
+.team-yapayline-social-link.instagram:hover {
   color: #e4405f;
 }
 
-.yapayline-social-link:nth-child(3):hover {
+.team-yapayline-social-link.github:hover {
   color: #181717;
 }
 
@@ -207,7 +208,7 @@
   .yapayline-team-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
-  
+
   .yapayline-section-title {
     font-size: 2.8rem;
   }
@@ -217,7 +218,7 @@
   .yapayline-team-section {
     padding: 6rem 0;
   }
-  
+
   .yapayline-team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -229,15 +230,15 @@
     max-width: 350px;
     margin: 0 auto;
   }
-  
+
   .yapayline-section-title {
     font-size: 2.4rem;
   }
-  
+
   .yapayline-member-name {
     font-size: 1.4rem;
   }
-  
+
   .yapayline-member-position {
     font-size: 1rem;
   }

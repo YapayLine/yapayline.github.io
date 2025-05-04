@@ -32,7 +32,7 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: transform 0.3s ease, opacity 0.3s ease;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -134,7 +134,7 @@
 }
 
 .yapayline-section-subtitle-contact {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -174,7 +174,7 @@
   border: 1px solid var(--border-light);
   border-radius: 8px;
   color: var(--text-primary);
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 }
@@ -216,7 +216,7 @@
   color: white;
   border: none;
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -260,7 +260,7 @@
 
 .yapayline-info-title-contact {
   font-size: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem !important;
   color: var(--text-primary);
   position: relative;
 }
@@ -312,6 +312,7 @@
   justify-content: center;
   width: 60px;
   height: 60px;
+  color: var(--text-primary);
   border-radius: 50%;
   background: var(--bg-card);
   backdrop-filter: blur(10px);
@@ -328,27 +329,27 @@
   transform: translateY(-5px) scale(1.1);
 }
 
-.yapayline-linkedin-btn:hover {
+.yapayline-linkedin-btn-contact:hover {
   border-color: #0a66c2;
   background: rgba(10, 102, 194, 0.1);
   box-shadow: 0 10px 20px rgba(10, 102, 194, 0.2);
 }
 
-.yapayline-linkedin-btn:hover i {
+.yapayline-linkedin-btn-contact:hover i {
   color: #0a66c2;
 }
 
-.yapayline-github-btn:hover {
+.yapayline-github-btn-contact:hover {
   border-color: #333;
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.yapayline-github-btn:hover i {
+.yapayline-github-btn-contact:hover i {
   color: #333;
 }
 
-.yapayline-instagram-btn:hover {
+.yapayline-instagram-btn-contact:hover {
   border-color: #e1306c;
   background: linear-gradient(
     45deg,
@@ -358,7 +359,7 @@
   box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
 }
 
-.yapayline-instagram-btn:hover i {
+.yapayline-instagram-btn-contact:hover i {
   background: linear-gradient(45deg, #833ab4, #e1306c);
   -webkit-background-clip: text;
   background-clip: text;
